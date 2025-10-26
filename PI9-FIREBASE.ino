@@ -10,8 +10,8 @@
 #include <time.h>
 
 // ===== CONFIGURAÇÕES DO WIFI =====
-#define WIFI_SSID "Luiz"
-#define WIFI_PASSWORD "anamaria123"
+#define WIFI_SSID "Cantina-IFEX"
+#define WIFI_PASSWORD "batataquente1234"
 
 // ===== CONFIGURAÇÕES DO FIREBASE =====
 #define API_KEY "AIzaSyCQKn4WqEztR81ioubHPd078SQ16gDmRHk"
@@ -85,16 +85,13 @@ void sendSensorData() {
                 temperature, humidity, lightAnalog, lightDigital);
 
   // ===== Envio dos dados para o Firebase =====
-  if (!Firebase.RTDB.setFloat(&fbdo, "/history/dht/" + timestamp + "/temperature", temperature))
+  if (!Firebase.RTDB.setFloat(&fbdo, "/history/temperature/" + timestamp, temperature))
     Serial.println(fbdo.errorReason());
 
-  if (!Firebase.RTDB.setFloat(&fbdo, "/history/dht/" + timestamp + "/humidity", humidity))
+  if (!Firebase.RTDB.setFloat(&fbdo, "/history/humidity/" + timestamp , humidity))
     Serial.println(fbdo.errorReason());
 
-  if (!Firebase.RTDB.setInt(&fbdo, "/history/ldr/" + timestamp + "/analog", lightAnalog))
-    Serial.println(fbdo.errorReason());
-
-  if (!Firebase.RTDB.setInt(&fbdo, "/history/ldr/" + timestamp + "/digital", lightDigital))
+  if (!Firebase.RTDB.setInt(&fbdo, "/history/ldr/" + timestamp , lightAnalog))
     Serial.println(fbdo.errorReason());
 }
 
