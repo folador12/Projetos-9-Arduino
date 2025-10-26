@@ -44,8 +44,8 @@ const int daylightOffset_sec = 0;
 
 // ===== Tempo para leitura dos sensores ===== 
 unsigned long lastSendTime = 0;
-//const unsigned long sendInterval = 5 * 60 * 1000; // 5 minutos
-const unsigned long sendInterval = 60 * 1000;
+const unsigned long sendInterval = 5 * 60 * 1000; // 5 minutos
+//const unsigned long sendInterval = 60 * 1000;
 
 // ===== Função auxiliar pra atualizar LEDs =====
 void updateLEDs(bool living, bool bedroom, bool kitchen, bool bathroom, bool office, bool garage) {
